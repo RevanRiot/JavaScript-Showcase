@@ -1,0 +1,26 @@
+// File: expenseTracker.js
+
+const expenses = [];
+
+function addExpense(description, amount) {
+    expenses.push({ description, amount });
+    console.log(`Added: ${description} - $${amount}`);
+}
+
+function viewExpenses() {
+    console.log("Expenses:");
+    expenses.forEach((expense, index) => {
+        console.log(`${index + 1}. ${expense.description}: $${expense.amount}`);
+    });
+}
+
+function totalExpenses() {
+    const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+    console.log(`Total: $${total}`);
+}
+
+// Example usage:
+addExpense("Groceries", 50);
+addExpense("Transport", 20);
+viewExpenses();
+totalExpenses();
