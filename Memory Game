@@ -1,0 +1,25 @@
+// File: memoryGame.js
+
+const cards = ["A", "B", "C", "A", "B", "C"];
+let shuffled = cards.sort(() => 0.5 - Math.random());
+let selected = [];
+
+function pickCard(index) {
+    if (selected.length < 2) {
+        selected.push({ card: shuffled[index], index });
+        console.log(`Card picked: ${shuffled[index]}`);
+
+        if (selected.length === 2) {
+            if (selected[0].card === selected[1].card) {
+                console.log("It's a match!");
+            } else {
+                console.log("No match.");
+            }
+            selected = [];
+        }
+    }
+}
+
+// Example gameplay:
+pickCard(0);
+pickCard(1);
