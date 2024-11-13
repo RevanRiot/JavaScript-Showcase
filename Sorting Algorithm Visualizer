@@ -1,0 +1,19 @@
+// File: sortingVisualizer.js
+
+function bubbleSort(arr) {
+    let steps = [];
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                steps.push([...arr]);
+            }
+        }
+    }
+    return steps;
+}
+
+// Example usage:
+const array = [5, 3, 8, 4, 2];
+const steps = bubbleSort(array);
+steps.forEach(step => console.log(step));
