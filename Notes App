@@ -1,0 +1,29 @@
+// File: notesApp.js
+
+const notes = [];
+
+function addNote(note) {
+    notes.push(note);
+    console.log("Note added.");
+}
+
+function viewNotes() {
+    console.log("Your Notes:");
+    notes.forEach((note, index) => console.log(`${index + 1}. ${note}`));
+}
+
+function deleteNote(index) {
+    if (index < 1 || index > notes.length) {
+        console.log("Invalid note number.");
+        return;
+    }
+    notes.splice(index - 1, 1);
+    console.log("Note deleted.");
+}
+
+// Example usage:
+addNote("Learn JavaScript");
+addNote("Build a notes app");
+viewNotes();
+deleteNote(1);
+viewNotes();
