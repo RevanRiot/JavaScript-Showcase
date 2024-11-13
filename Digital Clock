@@ -1,0 +1,9 @@
+// File: clock.js
+
+function updateClock() {
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    console.log(time);
+}
+
+setInterval(updateClock, 1000);
