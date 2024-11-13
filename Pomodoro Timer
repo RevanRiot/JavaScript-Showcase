@@ -1,0 +1,10 @@
+// File: pomodoroTimer.js
+
+function pomodoro(workTime, breakTime) {
+    console.log(`Work for ${workTime} minutes.`);
+    setTimeout(() => {
+        console.log(`Take a break for ${breakTime} minutes.`);
+    }, workTime * 60000);
+}
+
+pomodoro(25, 5);
