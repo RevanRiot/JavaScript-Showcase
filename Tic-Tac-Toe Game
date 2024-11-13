@@ -1,0 +1,24 @@
+// File: ticTacToe.js
+
+const board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
+let currentPlayer = "X";
+
+function printBoard() {
+    board.forEach(row => console.log(row.join(" | ")));
+    console.log("-".repeat(9));
+}
+
+function makeMove(row, col) {
+    if (board[row][col] !== " ") {
+        console.log("Cell is already taken!");
+        return;
+    }
+    board[row][col] = currentPlayer;
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    printBoard();
+}
+
+printBoard();
+makeMove(0, 0);
+makeMove(0, 1);
+makeMove(1, 1);
