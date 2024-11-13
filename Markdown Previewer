@@ -1,0 +1,21 @@
+// File: markdownPreviewer.js
+
+function markdownToHTML(markdown) {
+    const rules = [
+        { regex: /###### (.*$)/gim, replacement: "<h6>$1</h6>" },
+        { regex: /##### (.*$)/gim, replacement: "<h5>$1</h5>" },
+        { regex: /#### (.*$)/gim, replacement: "<h4>$1</h4>" },
+        { regex: /### (.*$)/gim, replacement: "<h3>$1</h3>" },
+        { regex: /## (.*$)/gim, replacement: "<h2>$1</h2>" },
+        { regex: /# (.*$)/gim, replacement: "<h1>$1</h1>" },
+        { regex: /\*\*(.*)\*\*/gim, replacement: "<b>$1</b>" },
+        { regex: /\*(.*)\*/gim, replacement: "<i>$1</i>" },
+    ];
+
+    return rules.reduce(
+        (output, rule) => output.replace(rule.regex, rule.replacement),
+        markdown
+    );
+}
+
+console.log(markdownToHTML("# Hello World\n**Bold Text**\n*Italic Text*"));
