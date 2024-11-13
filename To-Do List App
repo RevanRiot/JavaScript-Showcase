@@ -1,0 +1,31 @@
+// File: todo.js
+
+const todos = [];
+
+function addTodo(task) {
+    todos.push({ task, completed: false });
+    console.log(`Task "${task}" added.`);
+}
+
+function viewTodos() {
+    console.log("To-Do List:");
+    todos.forEach((todo, index) => {
+        console.log(`${index + 1}. ${todo.task} [${todo.completed ? "Completed" : "Pending"}]`);
+    });
+}
+
+function completeTodo(index) {
+    if (index < 1 || index > todos.length) {
+        console.log("Invalid task number.");
+        return;
+    }
+    todos[index - 1].completed = true;
+    console.log(`Task "${todos[index - 1].task}" marked as completed.`);
+}
+
+// Example usage:
+addTodo("Learn JavaScript");
+addTodo("Build a project");
+viewTodos();
+completeTodo(1);
+viewTodos();
