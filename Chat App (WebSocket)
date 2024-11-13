@@ -1,0 +1,19 @@
+// File: chat.js
+
+const ws = new WebSocket("wss://example.com/chat");
+
+ws.onopen = () => {
+    console.log("Connected to chat server");
+};
+
+ws.onmessage = (message) => {
+    console.log("Message received:", message.data);
+};
+
+function sendMessage(message) {
+    ws.send(message);
+    console.log("Message sent:", message);
+}
+
+// Example usage:
+sendMessage("Hello, world!");
