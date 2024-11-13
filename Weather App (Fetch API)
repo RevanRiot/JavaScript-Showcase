@@ -1,0 +1,12 @@
+// File: weather.js
+
+const apiKey = 'your_api_key';
+const city = 'London';
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(`Weather in ${data.name}: ${data.weather[0].description}`);
+        console.log(`Temperature: ${data.main.temp}°C`);
+    })
+    .catch(error => console.error("Error fetching weather data:", error));
