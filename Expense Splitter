@@ -1,0 +1,8 @@
+// File: expenseSplitter.js
+
+function splitExpenses(total, people) {
+    const share = total / people;
+    console.log(`Each person pays: $${share.toFixed(2)}`);
+}
+
+splitExpenses(120, 4);
